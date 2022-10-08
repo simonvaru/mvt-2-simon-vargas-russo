@@ -19,8 +19,8 @@ from . import views
 
 urlpatterns = [
     path('hola/', views.hola),
-    path('admin/', admin.site.urls),
     path('fecha/', views.fecha),
     path('fecha-nacimiento/<int:edad>', views.calcular_fecha_nacimiento),
-    
+    path('mi-template/', views.mi_template),
+    path('admin/', admin.site.urls),
 ]
