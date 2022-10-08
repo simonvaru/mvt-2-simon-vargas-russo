@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from datetime import datetime
 from django.template import Context, Template, loader
+import random
 
 def hola(request):
     return HttpResponse("Buenas, clase 41765!")
@@ -22,13 +23,17 @@ def mi_template(request):
     return HttpResponse(template_renderizado)
 
 def tu_template(request, nombre):
-    # cargar_archivo = open(r'E:\python_proyects\curso\ejercicios_de_clase_18_c\templates\tu_template.html', 'r')
-    # template = Template(cargar_archivo.read())
-    # cargar_archivo.close()
-    # contexto = Context({'persona':nombre})
-    # template_renderizado = template.render(contexto)
     template = loader.get_template('tu_template.html')
     template_renderizado = template.render({'persona': nombre})
+    return HttpResponse(template_renderizado)
+
+def prueba_template(request):
+    mi_contexto = {
+        'rango':list(range(1,11)),
+        'valor_aleatorio': random.randrange(1,11)
+    }
+    template = loader.get_template('prueba_template.html')
+    template_renderizado = template.render(mi_contexto)
     return HttpResponse(template_renderizado)
 
 
