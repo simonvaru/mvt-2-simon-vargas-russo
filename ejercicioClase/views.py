@@ -20,4 +20,6 @@ def mi_template(request):
     contexto = Context()
     template_renderizado = template.render(contexto)
     return HttpResponse(template_renderizado)
+
+###
     
