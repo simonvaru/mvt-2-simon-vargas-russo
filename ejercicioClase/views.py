@@ -39,6 +39,9 @@ def prueba_template(request):
     return HttpResponse(template_renderizado)
 
 def crear_persona(request, nombre, apellido):
+    # edadx = random.randrange(1, 99)
+    # f_n = datetime.now().year - edadx
+    # persona = Persona(nombre=nombre, apellido=apellido, edad = edadx, fecha_nacimiento= f_n)
     persona = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
     persona.save()
     
