@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {% block title_pagina %}
         <title>Landing Page - Start Bootstrap Theme</title>
+        {% endblock title_pagina %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -26,7 +28,11 @@
                 <a class="navbar-brand" href={% url 'ver_personas' %}>Ver personas</a>
             </div>
         </nav>
-
+        <div class="container">
+        {% block mi_contenido %}
+        
+        {% endblock mi_contenido %}
+        </div>
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
