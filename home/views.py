@@ -4,10 +4,10 @@ from django.template import Context, Template, loader
 from django.shortcuts import render
 import random
 
-from home.models import Persona
+from home.models import Humano
 
 def hola(request):
-    return HttpResponse("Buenas, clase 41765!")
+    return HttpResponse('<h1> Buenas, clase 41765!</h1>')
 
 def fecha(request):
     fecha_y_hora = datetime.now()
@@ -42,8 +42,8 @@ def prueba_template(request):
 def crear_persona(request, nombre, apellido):
     # edadx = random.randrange(1, 99)
     # f_n = datetime.now().year - edadx
-    # persona = Persona(nombre=nombre, apellido=apellido, edad = edadx, fecha_nacimiento= f_n)
-    persona = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
+    # persona = Humano(nombre=nombre, apellido=apellido, edad = edadx, fecha_nacimiento= f_n)
+    persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
     persona.save()
     
     # template = loader.get_template('crear_persona.html')
@@ -53,7 +53,7 @@ def crear_persona(request, nombre, apellido):
     return render(request, 'home/crear_persona.html', {'persona': persona})
 
 def ver_personas(request):
-    personas = Persona.objects.all()
+    personas = Humano.objects.all()
     # template = loader.get_template('ver_personas.html')
     # template_renderizado = template.render({'personas': personas})
     # return HttpResponse(template_renderizado)

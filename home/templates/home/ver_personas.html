@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a class="navbar-brand" href={% url 'index' %}>Index</a>
     <p>Listado de personas:</p>
     {% for persona in  personas %}
         <li>{{persona.nombre}}{{persona.apellido}}{{persona.edad}}{{persona.fecha_nacimiento}}</li>
