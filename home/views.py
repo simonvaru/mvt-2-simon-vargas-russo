@@ -39,18 +39,20 @@ def prueba_template(request):
     template_renderizado = template.render(mi_contexto)
     return HttpResponse(template_renderizado)
 
-def crear_persona(request, nombre, apellido):
-    # edadx = random.randrange(1, 99)
-    # f_n = datetime.now().year - edadx
-    # persona = Humano(nombre=nombre, apellido=apellido, edad = edadx, fecha_nacimiento= f_n)
-    persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_nacimiento=datetime.now())
-    persona.save()
+def crear_persona(request):
     
-    # template = loader.get_template('crear_persona.html')
-    # template_renderizado = template.render({'personas': persona})
-    
-    # return HttpResponse(template_renderizado)
-    return render(request, 'home/crear_persona.html', {'persona': persona})
+    print("===========================")
+    print(request.method)
+    print("===========================")
+    # print(request.method)
+    # print(request.method)
+        
+    # nombre = request.POST.get('nombre')
+    # apellido = request.POST.get('apellido')
+    # persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_creacion=datetime.now())
+    # persona.save()
+        
+    return render(request, 'home/crear_persona.html', {})
 
 def ver_personas(request):
     personas = Humano.objects.all()

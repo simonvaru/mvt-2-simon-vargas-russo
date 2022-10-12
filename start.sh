@@ -1,4 +1,4 @@
-if [ $VIRTUAL_ENVIRONMENT ]
+if [ VIRTUAL_ENVIRONMENT ]
 then
     deactivate
 fi
