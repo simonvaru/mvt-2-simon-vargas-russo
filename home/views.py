@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from datetime import datetime
 from django.template import Context, Template, loader
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
+from home.forms import HumanoFormulario, BusquedaHumanoFormulario
 
 from home.models import Humano
 
@@ -41,26 +42,47 @@ def prueba_template(request):
 
 def crear_persona(request):
     
-    print("===========================")
-    print(request.method)
-    print("===========================")
-    # print(request.method)
-    # print(request.method)
+    if request.method == "POST":
         
-    # nombre = request.POST.get('nombre')
-    # apellido = request.POST.get('apellido')
-    # persona = Humano(nombre=nombre, apellido=apellido, edad=random.randrange(1, 99), fecha_creacion=datetime.now())
-    # persona.save()
+        formulario = HumanoFormulario(request.POST)
         
-    return render(request, 'home/crear_persona.html', {})
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            
+            nombre = data['nombre']
+            apellido = data['apellido']
+            edad = data['edad']
+            fecha_creacion = data.get('fecha_creacion', datetime.now())
+            
+            persona = Humano(nombre=nombre, apellido=apellido, edad=edad, fecha_creacion=fecha_creacion)
+            persona.save()
+        
+            return redirect('ver_personas')
+        
+    formulario = HumanoFormulario()
+    
+    return render(request, 'home/crear_persona.html', {'formulario': formulario})
 
 def ver_personas(request):
-    personas = Humano.objects.all()
-    # template = loader.get_template('ver_personas.html')
-    # template_renderizado = template.render({'personas': personas})
-    # return HttpResponse(template_renderizado)
-    return render(request, 'home/ver_personas.html', {'personas': personas} )
+    
+    nombre = request.GET.get('nombre', None)
+    
+    if nombre:
+        personas = Humano.objects.filter(nombre__icontains=nombre)
+    else:    
+        personas = Humano.objects.all()
+
+    formulario = BusquedaHumanoFormulario()
+
+    return render(request, 'home/ver_personas.html', {'personas': personas, 'formulario': formulario} )
     
 def index(request):
         
     return render(request, 'home/index.html')
+
+
+
+
+
+
+
