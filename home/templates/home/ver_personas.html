@@ -19,7 +19,7 @@ Ver personas
 </form>     
 <p>
     {% for persona in  personas %}
-        <li>{{persona.nombre}}{{persona.apellido}}{{persona.edad}}{{persona.fecha_nacimiento}}</li>
+        <li>{{persona.nombre}}{{persona.apellido}}&nbsp;&nbsp;&nbsp;&nbsp;{{persona.edad}}&nbsp;&nbsp;&nbsp;&nbsp;{{persona.fecha_nacimiento}}</li>
     {% endfor %}
 </p>
 {% endblock index_contenido %} 
