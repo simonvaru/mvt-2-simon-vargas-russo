@@ -18,9 +18,15 @@ Ver personas
     <button> Buscar </button>
 </form>     
 <p>
-    {% for persona in  personas %}
-        <li>{{persona.nombre}}{{persona.apellido}}{{persona.edad}}{{persona.fecha_nacimiento}}</li>
-    {% endfor %}
+    {% if personas %}
+        {% for persona in  personas %}
+            <li>{{persona.nombre}}{{persona.apellido}}{{persona.edad}}{{persona.fecha_nacimiento}}</li>
+        {% endfor %}
+        
+    {% else %}
+        <p>No se encontraron resultados</p>
+    {% endif %}   
+    
 </p>
 {% endblock index_contenido %} 
 

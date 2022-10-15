@@ -8,11 +8,11 @@ from home.forms import HumanoFormulario, BusquedaHumanoFormulario
 from home.models import Humano
 
 def hola(request):
-    return HttpResponse('<h1> Buenas, clase 41765!</h1>')
+    return HttpResponse('<h1> Hola!, bienvenido!! Esto pertenece a la entrega intermedia del curso de python de CoderHouse.</h1>')
 
 def fecha(request):
     fecha_y_hora = datetime.now()
-    return HttpResponse(f"La fecha y hora actual es {fecha_y_hora}")
+    return HttpResponse(f"<h1>Estas viendo la fecha y hora actual es {fecha_y_hora}</h1>")
 
 def calcular_fecha_nacimiento(request, edad):
     fecha = datetime.now().year - edad
@@ -79,6 +79,9 @@ def ver_personas(request):
 def index(request):
         
     return render(request, 'home/index.html')
+
+def about(request):
+    return  render(request, 'home/about.html')
 
 
 
