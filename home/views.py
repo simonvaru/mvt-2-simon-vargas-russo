@@ -7,6 +7,7 @@ from home.forms import HumanoFormulario, BusquedaHumanoFormulario
 
 from home.models import Humano
 
+
 # def hola(request):
 #     return HttpResponse('<h1> Buenas, clase 41765!</h1>')
 
