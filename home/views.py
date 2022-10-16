@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from datetime import datetime
 from django.template import Context, Template, loader
 from django.shortcuts import render, redirect

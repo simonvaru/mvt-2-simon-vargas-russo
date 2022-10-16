@@ -1,4 +1,4 @@
-{% extends 'home/index.html' %}
+{% comment %} {% extends 'home/index.html' %}
 
 {% block title_pagina %}
 <title>Ver personas</title>
@@ -22,5 +22,43 @@ Ver personas
         <li>{{persona.nombre}}{{persona.apellido}}&nbsp;&nbsp;&nbsp;&nbsp;{{persona.edad}}&nbsp;&nbsp;&nbsp;&nbsp;{{persona.fecha_nacimiento}}</li>
     {% endfor %}
 </p>
-{% endblock index_contenido %} 
+{% endblock index_contenido %}  {% endcomment %}
+
+
+
+
+
+{% comment %} #copiado y pegado de commit probe: {% endcomment %}
+{% extends 'home/index.html' %}
+
+
+{% block title_pagina %}
+<title>Ver personas</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %}
+Ver personas
+{% endblock h1_texto_header %}
+
+{% block index_contenido %}
+<a class="navbar-brand" href={% url 'crear_persona' %}>Crear Persona</a>
+<p>Listado de personas:</p>
+
+<form action={% url 'ver_personas' %} method="GET">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+<p>
+    {% if personas %}
+
+        {% for persona in personas %}
+            <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
+        {% endfor %}
+
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock index_contenido %}
 
