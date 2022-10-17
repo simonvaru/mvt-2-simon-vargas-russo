@@ -1,22 +1,18 @@
-{% extends 'padre/base.html' %}
+{% extends 'padres/base.html' %}
 
 
 {% block title_pagina %}
 <title>Ver mascotas</title>
 {% endblock title_pagina %}
 
-{% block h1_texto_header %}
-Ver mascotas
-{% endblock h1_texto_header %}
-
-{% block index_contenido %}
-<a class="navbar-brand" href={% url 'crear_mascota' %}>Crear Mascotas</a>
+{% block mi_contenido %}
+<a class="navbar-brand" href={% url 'crear_mascota' %}>Crear Mascota</a>
 <p>Listado de mascotas</p>
 
-<form action={% url 'ver_mascotas' %} method="GET">
+{% comment %} <form action={% url 'ver_mascotas' %} method="GET">
     {{formulario}}
     <button>Buscar</button>
-</form>
+</form> {% endcomment %}
 <p>
     {% if mascotas %}
 
@@ -29,4 +25,4 @@ Ver mascotas
     {% endif %}
 
 </p>
-{% endblock index_contenido %}
+{% endblock mi_contenido %}
