@@ -7,38 +7,6 @@ from home.forms import HumanoFormulario, BusquedaHumanoFormulario
 
 from home.models import Humano
 
-def hola(request):
-    return HttpResponse('<h1> Hola!, bienvenido!! Esto pertenece a la entrega intermedia del curso de python de CoderHouse.</h1>')
-
-def fecha(request):
-    fecha_y_hora = datetime.now()
-    return HttpResponse(f"<h1>Estas viendo la fecha y hora actual es {fecha_y_hora}</h1>")
-
-def calcular_fecha_nacimiento(request, edad):
-    fecha = datetime.now().year - edad
-    return HttpResponse(f"Tu fecha de nacimiento aproxinmada para tus {edad} años seria: {fecha}")
-
-def mi_template(request):
-    cargar_archivo = open(r'E:\python_proyects\curso\ejercicios_de_clase_18_c\home\templates\mi_template.html', 'r')
-    template = Template(cargar_archivo.read())
-    cargar_archivo.close()
-    contexto = Context()
-    template_renderizado = template.render(contexto)
-    return HttpResponse(template_renderizado)
-
-def tu_template(request, nombre):
-    template = loader.get_template('home/tu_template.html')
-    template_renderizado = template.render({'persona': nombre})
-    return HttpResponse(template_renderizado)
-
-def prueba_template(request):
-    mi_contexto = {
-        'rango':list(range(1,11)),
-        'valor_aleatorio': random.randrange(1,11)
-    }
-    template = loader.get_template('home/prueba_template.html')
-    template_renderizado = template.render(mi_contexto)
-    return HttpResponse(template_renderizado)
 
 def crear_persona(request):
     
@@ -64,25 +32,29 @@ def crear_persona(request):
     return render(request, 'home/crear_persona.html', {'formulario': formulario})
 
 def ver_personas(request):
-    
+    personas = Humano.objects.all()         
+   
+    return render(request, 'home/ver_personas.html', {'personas': personas})
+
+def busqueda_personas(request):
     nombre = request.GET.get('nombre', None)
     
     if nombre:
         personas = Humano.objects.filter(nombre__icontains=nombre)
-    else:    
-        personas = Humano.objects.all()
-
-    formulario = BusquedaHumanoFormulario()
-
-    return render(request, 'home/ver_personas.html', {'personas': personas, 'formulario': formulario} )
+    else:
+        personas = None     
     
+    formulario = BusquedaHumanoFormulario()
+    
+    return render(request, 'home/busqueda_personas.html', {'personas':personas, 'formulario':formulario})
+
+   
 def index(request):
         
     return render(request, 'home/index.html')
 
 def about(request):
     return  render(request, 'home/about.html')
-
 
 
 

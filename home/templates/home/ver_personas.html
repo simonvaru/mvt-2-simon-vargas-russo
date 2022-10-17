@@ -9,18 +9,12 @@ Ver personas
 {% endblock h1_texto_header %}
 
 {% block index_contenido %}
-<a class="navbar-brand" href={% url 'crear_persona' %}>Crear Persona</a>
+
 <p>Listado de personas:</p>
-
-
-<form action={% url 'ver_personas' %} method="GET">
-    {{formulario}}
-    <button> Buscar </button>
-</form>     
 <p>
     {% if personas %}
         {% for persona in  personas %}
-            <li>{{persona.nombre}}{{persona.apellido}}{{persona.edad}}{{persona.fecha_nacimiento}}</li>
+            <li>  {{persona.apellido}} , {{persona.nombre}} - {{persona.edad}} --> {{persona.fecha_creacion}} </li>
         {% endfor %}
         
     {% else %}
