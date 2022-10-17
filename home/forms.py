@@ -1,5 +1,4 @@
 from django import forms
-from django import forms
 
 class HumanoFormulario(forms.Form):
     nombre = forms.CharField(max_length=30)

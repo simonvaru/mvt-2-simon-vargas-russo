@@ -25,12 +25,12 @@ def crear_persona(request):
             persona = Humano(nombre=nombre, apellido=apellido, edad=edad, fecha_creacion=fecha_creacion)
             persona.save()
         
-            return redirect('ver_personas')
+        return redirect('ver_personas')
         
     formulario = HumanoFormulario()
     
     return render(request, 'home/crear_persona.html', {'formulario': formulario})
-
+    
 def ver_personas(request):
     personas = Humano.objects.all()         
    
