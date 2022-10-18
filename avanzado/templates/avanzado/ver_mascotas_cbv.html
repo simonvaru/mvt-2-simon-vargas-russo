@@ -7,16 +7,16 @@
 
 {% block mi_contenido %}
 <a class="navbar-brand" href={% url 'crear_mascota' %}>Crear Mascota</a>
-<p>Listado de mascotas</p>
+<p>Listado de Mascotas:</p>
 
 {% comment %} <form action={% url 'ver_mascotas' %} method="GET">
     {{formulario}}
     <button>Buscar</button>
 </form> {% endcomment %}
 <p>
-    {% if mascotas %}
+    {% if object_list %}
 
-        {% for mascota in mascotas %}
+        {% for mascota in object_list %}
             <li>
                 {{mascota}}
                 {% comment %} <button>
