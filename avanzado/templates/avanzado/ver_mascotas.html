@@ -17,7 +17,13 @@
     {% if mascotas %}
 
         {% for mascota in mascotas %}
-            <li>{{mascota.nombre}} {{mascota.tipo}} {{mascota.edad}}</li>
+            <li>
+                {{mascota}}
+                {% comment %} <button>
+                    <a class="navbar-brand" href='#'>Editar</a>
+                </button> {% endcomment %}
+                <a class="navbar-brand" href={% url 'editar_mascota' mascota.id %}>Editar</a>
+            </li>
         {% endfor %}
 
     {% else %}

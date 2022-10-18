@@ -6,3 +6,7 @@ class MascotaFormulario(forms.Form):
     tipo  = forms.CharField(max_length=20)
     edad = forms.IntegerField()
     fecha_nacimiento = forms.DateField()
+    
+    
+    
+    
