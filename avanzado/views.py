@@ -81,14 +81,14 @@ class ListaMascotas(ListView):
     
 class CrearMascota(CreateView):
     model  = Mascota
-    succes_url = '/avanzado/mascotas/'
+    success_url = '/avanzado/mascotas/'
     template_name = 'avanzado/crear_mascota_cbv.html'
     fields = ['nombre', 'tipo', 'edad', 'fecha_nacimiento']
      
         
 class EditarMascota(UpdateView):
     model  = Mascota
-    succes_url = '/avanzado/mascotas/'
+    success_url = '/avanzado/mascotas/'
     template_name = 'avanzado/editar_mascota_cbv.html'
     fields = ['nombre', 'tipo', 'edad', 'fecha_nacimiento']    
     
@@ -97,7 +97,7 @@ class EditarMascota(UpdateView):
     
 class EliminarMascota(DeleteView):
     model  = Mascota
-    succes_url = '/avanzado/mascotas/'
+    success_url = '/avanzado/mascotas/'
     template_name = 'avanzado/eliminar_mascota_cbv.html'    
       
 # class VerMascota():    
