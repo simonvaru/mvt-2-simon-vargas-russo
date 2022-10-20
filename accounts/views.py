@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
 # from django.contrib.auth import login as django_login
+from accounts.forms import MiFormularioDeCreacion
 
 def mi_login(request):
     
@@ -16,4 +17,15 @@ def mi_login(request):
     
     return render(request, 'accounts/login.html', {'formulario': formulario})
 
-
+def registrar(request):
+    
+    if request.method == 'POST':
+        formulario = MiFormularioDeCreacion(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('index')
+        
+    else:
+        formulario = MiFormularioDeCreacion()    
+    
+    return render(request, 'accounts/registrar.html', {'formulario': formulario})
