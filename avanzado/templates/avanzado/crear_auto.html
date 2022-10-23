@@ -1,11 +1,11 @@
 {% extends 'padres/base.html' %}
 
 {% block title_pagina %}
-<title>Crear Mascota</title>
+<title>Crear Auto</title>
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-<form action={% url 'crear_mascota' %} method="POST">
+<form action={% url 'crear_auto' %} method="POST">
     {% csrf_token %}
     <table>
         {{form}}
