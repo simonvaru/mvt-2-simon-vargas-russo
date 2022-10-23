@@ -82,7 +82,7 @@ def eliminar_mascota(request, id):
         
 class ListaAutos(ListView):
     model = Auto
-    template_name = 'avanzado/ver_auto.html'
+    template_name = 'avanzado/ver_autos.html'
     
     
 class CrearAuto(LoginRequiredMixin, CreateView):
