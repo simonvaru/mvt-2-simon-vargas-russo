@@ -9,8 +9,8 @@ urlpatterns = [
     path('mascotas/eliminar/<int:id>', views.eliminar_mascota, name='eliminar_mascota'),
     
     #version con clases basadas en vistas
-    path('autos/', views.ListaAutos.as_view(), name='ver_autos'),
-    path('autos/crear/', views.CrearAuto.as_view(), name='crear_auto'),
-    path('autos/editar/<int:pk>', views.EditarAuto.as_view(), name='editar_auto'),
-    path('autos/eliminar/<int:pk>', views.EliminarAuto.as_view(), name='eliminar_auto'),
+    path('vehiculos/', views.ListaVehiculos.as_view(), name='ver_vehiculos'),
+    path('vehiculos/crear/', views.CrearVehiculo.as_view(), name='crear_vehiculo'),
+    path('vehiculos/editar/<int:pk>', views.EditarVehiculo.as_view(), name='editar_vehiculo'),
+    path('vehiculos/eliminar/<int:pk>', views.EliminarVehiculo.as_view(), name='eliminar_vehiculo'),
 ]

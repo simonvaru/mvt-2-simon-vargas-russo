@@ -1,6 +1,6 @@
 from re import template
 from django.shortcuts import redirect, render
-from avanzado.models import Mascota, Auto
+from avanzado.models import Mascota, Vehiculo
 from avanzado.forms import MascotaFormulario
 
 from django.views.generic import ListView
@@ -80,28 +80,28 @@ def eliminar_mascota(request, id):
     mascota.delete()
     return redirect('ver_mascotas')   
         
-class ListaAutos(ListView):
-    model = Auto
-    template_name = 'avanzado/ver_autos.html'
+class ListaVehiculos(ListView):
+    model = Vehiculo
+    template_name = 'avanzado/ver_vehiculos.html'
     
     
-class CrearAuto(LoginRequiredMixin, CreateView):
-    model  = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/crear_auto.html'
+class CrearVehiculo(LoginRequiredMixin, CreateView):
+    model  = Vehiculo
+    success_url = '/avanzado/vehiculos/'
+    template_name = 'avanzado/crear_vehiculo.html'
     fields = ['modelo', 'marca', 'cant_puertas', 'color', 'chasis']
      
         
-class EditarAuto(LoginRequiredMixin, UpdateView):
-    model  = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/editar_auto.html'
+class EditarVehiculo(LoginRequiredMixin, UpdateView):
+    model  = Vehiculo
+    success_url = '/avanzado/vehiculos/'
+    template_name = 'avanzado/editar_vehiculo.html'
     fields = ['modelo', 'marca', 'cant_puertas', 'color']    
    
     
-class EliminarAuto(LoginRequiredMixin, DeleteView):
-    model  = Auto
-    success_url = '/avanzado/autos/'
-    template_name = 'avanzado/eliminar_auto.html'    
+class EliminarVehiculo(LoginRequiredMixin, DeleteView):
+    model  = Vehiculo
+    success_url = '/avanzado/Vehiculos/'
+    template_name = 'avanzado/eliminar_vehiculo.html'    
       
 # class VerMascota():    

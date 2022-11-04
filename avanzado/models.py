@@ -13,7 +13,7 @@ class Mascota(models.Model):
         return f'Nombre: {self.nombre} - Tipo: {self.tipo}'
     
 
-class Auto(models.Model):
+class Vehiculo(models.Model):
     modelo = models.CharField(max_length=20)
     marca  = models.CharField(max_length=20)
     cant_puertas = models.IntegerField()

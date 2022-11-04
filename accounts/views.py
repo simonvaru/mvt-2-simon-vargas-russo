@@ -7,7 +7,7 @@ from accounts.forms import EditarPerfilFormulario, MiFormularioDeCreacion
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
-
+from accounts.models import ExtensionUsuario
 
 def mi_login(request):
     
@@ -16,6 +16,7 @@ def mi_login(request):
         if formulario.is_valid():
             usuario=formulario.get_user()
             login(request, usuario) #django_login(request, usuario)
+            extensionUsuario, es_nuevo = ExtensionUsuario.objects.get_or_create(user=request.user)
             return redirect('index')
     else:
         formulario = AuthenticationForm()
@@ -37,23 +38,27 @@ def registrar(request):
 
 @login_required
 def perfil(request):
-    ...
+    
     return render(request, 'accounts/perfil.html', {})
 
 @login_required
 def editar_perfil(request):
     
     user = request.user
+    
+    user.extensionusuario
         
     if request.method == 'POST':
-        formulario = EditarPerfilFormulario(request.POST)
+        formulario = EditarPerfilFormulario(request.POST, request.FILES)
         
         if formulario.is_valid():
             data_nueva = formulario.cleaned_data
             user.first_name = data_nueva['first_name']
             user.last_name = data_nueva['last_name']
             user.email = data_nueva['email']
+            user.extensionusuario.avatar = data_nueva['avatar']
             
+            user.extensionusuario.save()
             user.save()
             return redirect('perfil')
             
@@ -64,6 +69,7 @@ def editar_perfil(request):
                 'first_name': request.user.first_name,
                 'last_name': request.user.last_name, 
                 'email': request.user.email,
+                'avatar': user.extensionusuario.avatar,
             }
         )    
     
