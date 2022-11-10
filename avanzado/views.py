@@ -85,20 +85,20 @@ class ListaVehiculos(ListView):
     model = Vehiculo
     # success_url = '/avanzado/vehiculos/'
     template_name = 'avanzado/ver_vehiculos.html'
-    # fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color'] ######
+    # fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'avatar'] ######
     
 class CrearVehiculo(LoginRequiredMixin, CreateView):
     model  = Vehiculo
     success_url = '/avanzado/vehiculos/'
     template_name = 'avanzado/crear_vehiculo.html'
-    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'chasis']
+    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'chasis', 'avatar']
      
         
 class EditarVehiculo(LoginRequiredMixin, UpdateView):
     model  = Vehiculo
     success_url = '/avanzado/vehiculos/'
     template_name = 'avanzado/editar_vehiculo.html'
-    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color']    
+    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'avatar']    #
    
     
 class EliminarVehiculo(LoginRequiredMixin, DeleteView):

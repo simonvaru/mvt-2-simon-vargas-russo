@@ -1,6 +1,6 @@
 # from socket import TIPC_CONN_TIMEOUT
 from django.db import models
-
+from django.contrib.auth.models import User #
 # Create your models here.
 
 class Mascota(models.Model):
@@ -21,7 +21,10 @@ class Vehiculo(models.Model):
     cant_puertas = models.IntegerField()
     color = models.CharField(max_length=20)
     chasis = models.CharField(max_length=20)
-
-    def __str__(self):
-        return f'Modelo: {self.modelo} - Marca: {self.marca} - Chasis: {self.chasis}'
+    avatar = models.ImageField(upload_to='avatares', null=True, blank=True)#
+    cliente = models.OneToOneField(User, on_delete=models.CASCADE)###problema###
     
+    def __str__(self):
+        return f'Matricula: {self.matricula} \nPropietario: {self.propietario} \nModelo: {self.modelo} \nMarca: {self.marca} \nAvatar: {self.avatar}'
+
+

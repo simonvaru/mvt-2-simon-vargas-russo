@@ -1,6 +1,8 @@
 from django.urls import path
 from avanzado import views
-
+from django.conf import settings
+from django.conf.urls.static import static #
+ 
 urlpatterns = [
     #version con vistas comunes
     path('mascotas/', views.ver_mascotas, name='ver_mascotas'),
@@ -14,3 +16,5 @@ urlpatterns = [
     path('vehiculos/editar/<int:pk>', views.EditarVehiculo.as_view(), name='editar_vehiculo'),
     path('vehiculos/eliminar/<int:pk>', views.EliminarVehiculo.as_view(), name='eliminar_vehiculo'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#

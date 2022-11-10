@@ -15,6 +15,7 @@ class Vehiculo(forms.Form):
     cant_puertas = forms.IntegerField()
     color = forms.CharField(max_length=20)
     chasis = forms.CharField(max_length=20)
+    avatar = forms.ImageField(required=False)
         
     
     
