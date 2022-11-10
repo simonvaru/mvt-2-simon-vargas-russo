@@ -2,23 +2,24 @@
 
 
 {% block title_pagina %}
-<title>Vehiculos</title>
+<title>Ver Vehiculos</title>
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
 <a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
 <p>Listado de Vehiculos:</p>
 
-{% comment %} <form action={% url 'ver_vehiculos' %} method="GET">
+<form action={% url 'ver_vehiculos' %} method="GET">
     {{formulario}}
     <button>Buscar</button>
-</form> {% endcomment %}
+</form> 
 <p>
-    {% if vehiculos %}
-
-        {% for vehiculo in vehiculos %}
+    {% if object_list  %}
+        {% for vehiculo in object_list %}
             <li>
                 {{vehiculo}}
+                {% comment %} Modelo: {{vehiculo.modelo}} {% endcomment %}
+                {% comment %} <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li> {% endcomment %}
                 {% comment %} <button>
                     <a class="navbar-brand" href='#'>Editar</a>
                 </button> {% endcomment %}
@@ -27,7 +28,7 @@
             </li>
         {% endfor %}
 
-    {% else %}
+    {% else %} 
         <p>No se encontraron resultados.</p>
     {% endif %}
 

@@ -14,6 +14,8 @@ class Mascota(models.Model):
     
 
 class Vehiculo(models.Model):
+    matricula = models.CharField(max_length=20)
+    propietario = models.CharField(max_length=20)    
     modelo = models.CharField(max_length=20)
     marca  = models.CharField(max_length=20)
     cant_puertas = models.IntegerField()
