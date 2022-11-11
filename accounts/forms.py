@@ -5,7 +5,7 @@ from django import forms
 
 class MiFormularioDeCreacion(UserCreationForm):
     
-    username = forms.CharField(label='Contrasenia', max_length=20)
+    username = forms.CharField(label='Usuario', max_length=20)
     password1 = forms.CharField(label='Contrasenia', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir Contraseña', widget=forms.PasswordInput)
     

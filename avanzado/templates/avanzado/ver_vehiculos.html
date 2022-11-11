@@ -4,9 +4,9 @@
 {% block title_pagina %}
 <title>Vehiculos</title>
 {% endblock title_pagina %}
-
+                                 
 {% block mi_contenido %}
-<a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+<a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>  
 <p>Listado de Vehiculos:</p>
 
 {% comment %} <form action={% url 'ver_mascotas' %} method="GET">
@@ -14,11 +14,11 @@
     <button>Buscar</button>
 </form> {% endcomment %}
 <p>
-    {% if object_list %}
+    {% if vehiculos %}
 
-        {% for vehiculo in object_list %}
+        {% for vehiculo in vehiculos %}
             <li>
-                {{vehiculo}
+                {{vehiculo}}
                 {% comment %} <button>
                     <a class="navbar-brand" href='#'>Editar</a>
                 </button> {% endcomment %}
