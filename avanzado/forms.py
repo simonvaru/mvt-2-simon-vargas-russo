@@ -16,6 +16,8 @@ class Vehiculo(forms.Form):
     color = forms.CharField(max_length=20)
     chasis = forms.CharField(max_length=20)
     avatar = forms.ImageField(required=False)
-        
+    
+class BusquedaVehiculo(forms.Form):
+    matricula = forms.CharField(max_length=20, required=False)        
     
     

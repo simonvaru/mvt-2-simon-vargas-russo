@@ -15,6 +15,7 @@ urlpatterns = [
     path('vehiculos/crear/', views.CrearVehiculo.as_view(), name='crear_vehiculo'),
     path('vehiculos/editar/<int:pk>', views.EditarVehiculo.as_view(), name='editar_vehiculo'),
     path('vehiculos/eliminar/<int:pk>', views.EliminarVehiculo.as_view(), name='eliminar_vehiculo'),
+    # path('vehiculos/busqueda/<int:pk>', views.BusquedaVehiculo.as_view(), name='busqueda_vehiculo'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#

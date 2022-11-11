@@ -6,13 +6,10 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-<a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+
 <p>Listado de Vehiculos:</p>
 
-<form action={% url 'ver_vehiculos' %} method="GET">
-    {{formulario}}
-    <button>Buscar</button>
-</form> 
+ 
 <p>
     {% if object_list  %}
         {% for vehiculo in object_list %}
@@ -31,6 +28,17 @@
     {% else %} 
         <p>No se encontraron resultados.</p>
     {% endif %}
-
+{% comment %} <a class="navbar-brand" href={% url 'busqueda_vehiculo'  vehiculo.id %}><button>Buscar</button></a> {% endcomment %}
 </p>
+<a class="navbar-brand" href={% url 'crear_vehiculo' %}>Crear Vehiculo</a>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Busqueda de Vehiculos:</p>
+
+<form action={% url 'ver_vehiculos' %} method="GET">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+
 {% endblock mi_contenido %}
