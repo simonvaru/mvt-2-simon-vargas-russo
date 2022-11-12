@@ -9,6 +9,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from accounts.models import ExtensionUsuario
 
+
+def about(request):
+    
+    return render(request, 'accounts/about.html', {})
+
 def mi_login(request):
     
     if request.method == 'POST':
