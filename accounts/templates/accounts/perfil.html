@@ -12,7 +12,7 @@
 <p>
     <li>
         {% if request.user.extensionusuario.avatar%}
-        <img src={{request.user.extensionusuario.avatar.url}} alt="">
+        <img src={{request.user.extensionusuario.avatar.url}}  width="{{ 200 }}"/>
         {% else %}
         Imagen no cargada
         {% endif %}
