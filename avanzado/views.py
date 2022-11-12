@@ -32,7 +32,7 @@ class CrearVehiculo(LoginRequiredMixin, CreateView):
     model  = Vehiculo
     success_url = '/avanzado/vehiculos/'
     template_name = 'avanzado/crear_vehiculo.html'
-    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'chasis', 'avatar']
+    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'chasis']
      
         
 class EditarVehiculo(LoginRequiredMixin, UpdateView):
