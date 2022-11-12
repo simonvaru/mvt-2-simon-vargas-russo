@@ -39,7 +39,7 @@ class EditarVehiculo(LoginRequiredMixin, UpdateView):
     model  = Vehiculo
     success_url = '/avanzado/vehiculos/'
     template_name = 'avanzado/editar_vehiculo.html'
-    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color', 'avatar']    #
+    fields = ['matricula', 'propietario', 'modelo', 'marca', 'cant_puertas', 'color']    #
    
     
 class EliminarVehiculo(LoginRequiredMixin, DeleteView):

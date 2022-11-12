@@ -15,6 +15,6 @@ class Vehiculo(models.Model):
     cliente = models.OneToOneField(User, on_delete=models.CASCADE)###problema###
     
     def __str__(self):
-        return f'Matricula: {self.matricula} \nPropietario: {self.propietario} \nModelo: {self.modelo} \nMarca: {self.marca} \nAvatar: {self.avatar}'
+        return f'Matricula: {self.matricula} Propietario: {self.propietario} Modelo: {self.modelo} Marca: {self.marca} '
 
 

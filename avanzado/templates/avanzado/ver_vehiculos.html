@@ -15,11 +15,6 @@
         {% for vehiculo in object_list %}
             <li>
                 {{vehiculo}}
-                {% comment %} Modelo: {{vehiculo.modelo}} {% endcomment %}
-                {% comment %} <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li> {% endcomment %}
-                {% comment %} <button>
-                    <a class="navbar-brand" href='#'>Editar</a>
-                </button> {% endcomment %}
                 <a href={% url 'editar_vehiculo' vehiculo.id %}>Editar</a>
                 <a href={% url 'eliminar_vehiculo' vehiculo.id %}>Eliminar</a>
             </li>
