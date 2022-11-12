@@ -14,6 +14,10 @@ def about(request):
     
     return render(request, 'accounts/about.html', {})
 
+def consignas(request):
+    
+    return render(request, 'accounts/consignas.html', {})
+
 def mi_login(request):
     
     if request.method == 'POST':
@@ -85,6 +89,7 @@ def editar_perfil(request):
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/cambiar_contrasenia.html'
     success_url = '/accounts/perfil/'
+
 
 
 
