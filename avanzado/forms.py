@@ -1,11 +1,7 @@
 from django import forms
 from django import forms
 
-class MascotaFormulario(forms.Form):
-    nombre = forms.CharField(max_length=20)
-    tipo  = forms.CharField(max_length=20)
-    edad = forms.IntegerField()
-    fecha_nacimiento = forms.DateField()
+
     
 class Vehiculo(forms.Form):
     matricula = forms.CharField(max_length=20)
@@ -20,4 +16,4 @@ class Vehiculo(forms.Form):
 class BusquedaVehiculo(forms.Form):
     matricula = forms.CharField(max_length=20, required=False)        
     
-######    
+  
