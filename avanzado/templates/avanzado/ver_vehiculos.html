@@ -32,6 +32,7 @@
 <p>Busqueda de Vehiculos:</p>
 
 <form action={% url 'ver_vehiculos' %} method="GET">
+    {{form.media}}
     {{formulario}}
     <button>Buscar</button>
 </form>

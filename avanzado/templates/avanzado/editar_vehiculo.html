@@ -5,9 +5,10 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-<form action={% url 'editar_vehiculo' vehiculo.id %} method="POST">
+<form action={% url 'editar_vehiculo' vehiculo.id %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Grabar</button>
