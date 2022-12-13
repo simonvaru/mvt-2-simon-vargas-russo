@@ -5,4 +5,4 @@ from django.contrib import admin
 
 from avanzado.models import Vehiculo
 
-# admin.site.register(Mascota, Vehiculo)
+# admin.site.register(Vehiculo)
